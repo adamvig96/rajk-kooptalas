@@ -1,10 +1,9 @@
-
-<!-- saved from url=(0066)file:///Users/vigadam/Documents/github/kooptalas/kooptalas_51.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<link rel="stylesheet" href="./kooptalas_51_files/vis.css" type="text/css">
-<script type="text/javascript" src="./kooptalas_51_files/vis-network.min.js"> </script>
-</head><body><center>
-<h1>51. évfolyam kooptálás 2020. 10. 23</h1>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>51. Ã©vfolyam kooptÃ¡lÃ¡s 2020. 10. 23</h1>
 </center>
 
 <!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
@@ -21,17 +20,17 @@
             float: left;
         }
 
-        
 
-        
 
-        
+
+
+
 </style>
 
+</head>
 
-
-
-<div id="mynetwork"><div class="vis-network" tabindex="900" style="position: relative; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"><canvas width="771" height="600" style="position: relative; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"></canvas></div></div>
+<body>
+<div id = "mynetwork"></div>
 
 
 <script type="text/javascript">
@@ -39,16 +38,16 @@
     // initialize global variables.
     var edges;
     var nodes;
-    var network; 
+    var network;
     var container;
     var options, data;
 
-    
+
     // This method is responsible for drawing the graph, returns the drawn network
     function drawGraph() {
         var container = document.getElementById('mynetwork');
-        
-        
+
+
 
         // parsing and collecting nodes and edges from the python
         nodes = new vis.DataSet([{"font": {"color": "black"}, "id": "Barab\u00e1s D\u00e1niel", "label": "Barab\u00e1s D\u00e1niel", "shape": "dot", "title": "Barab\u00e1s D\u00e1niel"}, {"font": {"color": "black"}, "id": "Kal\u00f3 Eszter", "label": "Kal\u00f3 Eszter", "shape": "dot", "title": "Kal\u00f3 Eszter"}, {"font": {"color": "black"}, "id": "Kov\u00e1cs D\u00f3ra", "label": "Kov\u00e1cs D\u00f3ra", "shape": "dot", "title": "Kov\u00e1cs D\u00f3ra"}, {"font": {"color": "black"}, "id": "Szentesi Zsuzsa", "label": "Szentesi Zsuzsa", "shape": "dot", "title": "Szentesi Zsuzsa"}, {"font": {"color": "black"}, "id": "Ungv\u00e1ri Borb\u00e1la", "label": "Ungv\u00e1ri Borb\u00e1la", "shape": "dot", "title": "Ungv\u00e1ri Borb\u00e1la"}, {"font": {"color": "black"}, "id": "D\u00e9nes Dorka", "label": "D\u00e9nes Dorka", "shape": "dot", "title": "D\u00e9nes Dorka"}, {"font": {"color": "black"}, "id": "Plank\u00f3 Stef\u00e1nia", "label": "Plank\u00f3 Stef\u00e1nia", "shape": "dot", "title": "Plank\u00f3 Stef\u00e1nia"}, {"font": {"color": "black"}, "id": "G\u00e9mes Imre", "label": "G\u00e9mes Imre", "shape": "dot", "title": "G\u00e9mes Imre"}, {"font": {"color": "black"}, "id": "Ipacs Veronika", "label": "Ipacs Veronika", "shape": "dot", "title": "Ipacs Veronika"}, {"font": {"color": "black"}, "id": "J\u00f3zsa Jakab", "label": "J\u00f3zsa Jakab", "shape": "dot", "title": "J\u00f3zsa Jakab"}, {"font": {"color": "black"}, "id": "Kov\u00e1cs Fruzsina", "label": "Kov\u00e1cs Fruzsina", "shape": "dot", "title": "Kov\u00e1cs Fruzsina"}, {"font": {"color": "black"}, "id": "K\u00edn\u00e1l D\u00e1niel", "label": "K\u00edn\u00e1l D\u00e1niel", "shape": "dot", "title": "K\u00edn\u00e1l D\u00e1niel"}, {"font": {"color": "black"}, "id": "Liszkay Al\u00edz", "label": "Liszkay Al\u00edz", "shape": "dot", "title": "Liszkay Al\u00edz"}, {"font": {"color": "black"}, "id": "Magyar Gergely", "label": "Magyar Gergely", "shape": "dot", "title": "Magyar Gergely"}, {"font": {"color": "black"}, "id": "Mizs\u00e1k M\u00e1t\u00e9", "label": "Mizs\u00e1k M\u00e1t\u00e9", "shape": "dot", "title": "Mizs\u00e1k M\u00e1t\u00e9"}, {"font": {"color": "black"}, "id": "Ny\u00e1ry J\u00e1nos", "label": "Ny\u00e1ry J\u00e1nos", "shape": "dot", "title": "Ny\u00e1ry J\u00e1nos"}, {"font": {"color": "black"}, "id": "Ozor\u00f3zcy \u00c1kos", "label": "Ozor\u00f3zcy \u00c1kos", "shape": "dot", "title": "Ozor\u00f3zcy \u00c1kos"}, {"font": {"color": "black"}, "id": "T\u00f3th Csongor", "label": "T\u00f3th Csongor", "shape": "dot", "title": "T\u00f3th Csongor"}]);
@@ -58,17 +57,17 @@
         data = {nodes: nodes, edges: edges};
 
         var options = {"nodes": {"borderWidth": 2, "color": {"highlight": {"background": "rgba(217,255,50,1)"}}, "font": {"size": 50, "face": "tahoma"}}, "edges": {"color": {"inherit": true}, "smooth": false}, "physics": {"barnesHut": {"gravitationalConstant": -80000, "springLength": 250, "springConstant": 0.001}, "minVelocity": 0.75}};
-        
-        
 
-        
+
+
+
 
         network = new vis.Network(container, data, options);
 
-        
 
 
-        
+
+
 
         return network;
 
@@ -77,5 +76,5 @@
     drawGraph();
 
 </script>
-
-</body></html>
+</body>
+</html>
